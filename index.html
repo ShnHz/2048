@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection">
+	<title>2048</title>
+
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/reset.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body style="overflow:hidden">
+
+	<div class="container">
+
+		<div class="scores">
+			<div class="score-container best-score">
+				最佳:
+				<div class="score">
+					<div id="bestScore">0</div>
+				</div>
+			</div>
+			<div class="score-container">
+				分数:
+				<div class="score">
+					<div id="score">0</div>
+					<div class="add" id="add"></div>
+				</div>
+			</div>
+		</div>
+		<div class="game">
+			<div id="tile-container" class="tile-container"></div>
+			<div class="end" id="end">游戏结束
+				<div class="monkey">🙈</div>
+				<button class="btn restart" id="try-again">再试一次</button>
+				<button class="btn" id="carry-on" onclick="carry()" style="margin-top:10px;">继续游戏</button>				
+			</div>
+		</div>
+
+		<div class="not-recommended">
+			<button class="btn " id="laststep" onclick="laststep()">我要回上一步</button>
+			<button class="btn restart" id="restart">重新开始</button>
+		</div>
+
+	</div>
+
+	<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/index.js"></script>
+
+</body>
+
+</html>
