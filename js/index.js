@@ -29,6 +29,11 @@ var lastlayout = null;
 var lastscore = null;
 var lastbtn = false;
 
+var text1024 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;1024<br>知道我为什么这么喜欢你嘛';
+var text2048 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;2048<br>因为';
+var text4096 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;4096<br>我喜欢的样子你都有啊';
+var text8192 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;8192<br>';
+
 function initGame() {
   game = Array(size * size).fill(null); // 4 x 4 grid, represented as an array
   initBestScore();
@@ -157,13 +162,13 @@ function drawGame(tiles, isNew) {
           var tileDiv = document.createElement('div');
           positionTile(tile, tileDiv);
           tilecss = tile.value
-          if (tilecss == '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;1024<br>知道我为什么这么喜欢你嘛') {
+          if (tilecss == text1024) {
             tilecss = "cys"
-          }else if(tilecss == '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;2048<br>因为'){
+          }else if(tilecss == text2048){
             tilecss = "good"
-          }else if(tilecss == '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;4096<br>我喜欢的样子你都有啊'){
+          }else if(tilecss == text4096){
             tilecss = "food"
-          }else if(tilecss == '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;8192<br>'){
+          }else if(tilecss == text8192){
             tilecss = "food2"
           }
 
@@ -323,13 +328,13 @@ function shiftGameLeft(gameGrid) {
 
     for (var j = 0; j < filteredRow.length - 1; j++) {
       if (filteredRow[j].value === filteredRow[j + 1].value) {
-        if (filteredRow[j].value === '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;1024<br>知道我为什么这么喜欢你嘛') {
+        if (filteredRow[j].value === text1024) {
           filteredRow[j].value = 1024
-        }else if(filteredRow[j].value === '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;2048<br>因为'){
+        }else if(filteredRow[j].value === text2048){
           filteredRow[j].value = 2048
-        }else if(filteredRow[j].value === '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;4096<br>我喜欢的样子你都有啊'){
+        }else if(filteredRow[j].value === text4096){
           filteredRow[j].value = 4096
-        }else if(filteredRow[j].value === '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;8192<br>'){
+        }else if(filteredRow[j].value === text8192){
           filteredRow[j].value = 8192
         }
 
@@ -337,13 +342,13 @@ function shiftGameLeft(gameGrid) {
 
         var sum = mergeSum;
         if (mergeSum === 1024) {
-          sum = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;1024<br>知道我为什么这么喜欢你嘛'
+          sum = text1024
         }else if(mergeSum === 2048){
-          sum = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;2048<br>因为'
+          sum = text2048
         }else if(mergeSum === 4096){
-          sum = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;4096<br>我喜欢的样子你都有啊'
+          sum = text4096
         }else if(mergeSum === 8192){
-          sum = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;8192<br>'
+          sum = text8192
         }
 
         filteredRow[j] = {
