@@ -29,10 +29,11 @@ var lastlayout = null;
 var lastscore = null;
 var lastbtn = false;
 
-var text1024 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;1024<br>知道我为什么这么喜欢你嘛';
-var text2048 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;2048<br>因为';
-var text4096 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;4096<br>我喜欢的样子你都有啊';
-var text8192 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;8192<br>';
+var startdate=1478793600000;
+var enddate=Date.parse(new Date());
+var utc=enddate-startdate;
+var diff= Math.floor(utc/(60*60*1000))
+console.log(diff);
 
 function initGame() {
   game = Array(size * size).fill(null); // 4 x 4 grid, represented as an array
@@ -545,6 +546,12 @@ function handleTouchMove(evt) {
 //   xDown = null;
 //   yDown = null;
 // }
+
+var text1024 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;1024<br>';
+var text2048 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;2048<br>';
+var text4096 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;4096<br>'
+var text8192 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;8192<br>';
+
 
 function handleKeypress(evt) {
   var modifiers = event.altKey || event.ctrlKey || event.metaKey || event.shiftKey;
