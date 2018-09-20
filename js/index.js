@@ -393,7 +393,7 @@ function shiftGameLeft(gameGrid) {
   if (lastbtn === true) {
     $("#laststep").attr("onclick", "laststep()");
     $("#laststep").html("我要回上一步");
-    $("#laststep").css("background", "#1B9AAA")
+    $("#laststep").css("background", "#ffeee4")
   }
 
   return newGameState;
