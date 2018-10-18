@@ -35,6 +35,12 @@ var utc=enddate-startdate;
 var diff= Math.floor(utc/(60*60*1000))
 console.log(diff);
 
+var text512 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;512<br>陈莹霜<br>超可爱';
+var text1024 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;1024<br>救济一下<br>劳苦百姓';
+var text2048 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;2048<br>请我吃顿饭嘛<br>可爱多';
+var text4096 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;4096<br>'
+var text8192 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;8192<br>';
+
 function initGame() {
   game = Array(size * size).fill(null); // 4 x 4 grid, represented as an array
   initBestScore();
@@ -163,7 +169,9 @@ function drawGame(tiles, isNew) {
           var tileDiv = document.createElement('div');
           positionTile(tile, tileDiv);
           tilecss = tile.value
-          if (tilecss == text1024) {
+          if (tilecss == text512) {
+            tilecss = "cys"
+          }else if (tilecss == text1024) {
             tilecss = "cys"
           }else if(tilecss == text2048){
             tilecss = "good"
@@ -329,7 +337,9 @@ function shiftGameLeft(gameGrid) {
 
     for (var j = 0; j < filteredRow.length - 1; j++) {
       if (filteredRow[j].value === filteredRow[j + 1].value) {
-        if (filteredRow[j].value === text1024) {
+        if (filteredRow[j].value === text512) {
+          filteredRow[j].value = 512
+        }else if (filteredRow[j].value === text1024) {
           filteredRow[j].value = 1024
         }else if(filteredRow[j].value === text2048){
           filteredRow[j].value = 2048
@@ -342,7 +352,9 @@ function shiftGameLeft(gameGrid) {
         var mergeSum = filteredRow[j].value * 2;
 
         var sum = mergeSum;
-        if (mergeSum === 1024) {
+        if (mergeSum === 512) {
+          sum = text512
+        }else if (mergeSum === 1024) {
           sum = text1024
         }else if(mergeSum === 2048){
           sum = text2048
@@ -546,11 +558,6 @@ function handleTouchMove(evt) {
 //   xDown = null;
 //   yDown = null;
 // }
-
-var text1024 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;1024<br>';
-var text2048 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;2048<br>';
-var text4096 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;4096<br>'
-var text8192 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;8192<br>';
 
 
 function handleKeypress(evt) {
