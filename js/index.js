@@ -29,16 +29,16 @@ var lastlayout = null;
 var lastscore = null;
 var lastbtn = false;
 
-var startdate=1478793600000;
-var enddate=Date.parse(new Date());
-var utc=enddate-startdate;
-var diff= Math.floor(utc/(60*60*1000))
+var startdate = 1478793600000;
+var enddate = Date.parse(new Date());
+var utc = enddate - startdate;
+var diff = Math.floor(utc / (60 * 60 * 1000))
 console.log(diff);
 
-var text512 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;512<br>陈莹霜<br>超可爱';
-var text1024 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;1024<br>救济一下<br>劳苦百姓';
-var text2048 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;2048<br>请我吃顿饭嘛<br>可爱多';
-var text4096 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;4096<br>'
+var text512 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;512<br>';
+var text1024 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;1024<br>希望<br>我们能';
+var text2048 = '<i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;2048<br>一起做很多<br>很多事情';
+var text4096 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;4096<br>一直一直'
 var text8192 = '<i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;8192<br>';
 
 function initGame() {
@@ -61,7 +61,7 @@ function updateDOM(before, after) {
 }
 
 function removeElements(mergedTiles) {
-  for (var _iterator = mergedTiles, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator](); ;) {
+  for (var _iterator = mergedTiles, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
     var _ref;
 
     if (_isArray) {
@@ -95,7 +95,7 @@ function removeElements(mergedTiles) {
       }, 100);
     };
 
-    for (var _iterator2 = tile.mergedIds, _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _iterator2[Symbol.iterator](); ;) {
+    for (var _iterator2 = tile.mergedIds, _isArray2 = Array.isArray(_iterator2), _i2 = 0, _iterator2 = _isArray2 ? _iterator2 : _iterator2[Symbol.iterator]();;) {
       var _ref2;
 
       var _ret = _loop();
@@ -171,13 +171,13 @@ function drawGame(tiles, isNew) {
           tilecss = tile.value
           if (tilecss == text512) {
             tilecss = "cys"
-          }else if (tilecss == text1024) {
+          } else if (tilecss == text1024) {
             tilecss = "cys"
-          }else if(tilecss == text2048){
+          } else if (tilecss == text2048) {
             tilecss = "good"
-          }else if(tilecss == text4096){
+          } else if (tilecss == text4096) {
             tilecss = "food"
-          }else if(tilecss == text8192){
+          } else if (tilecss == text8192) {
             tilecss = "food2"
           }
 
@@ -199,8 +199,8 @@ function drawGame(tiles, isNew) {
 
 function gameOver() {
   if (game.filter(function (number) {
-    return number === null;
-  }).length === 0) {
+      return number === null;
+    }).length === 0) {
     var sameNeighbors = game.find(function (tile, i) {
       var isRightSame = game[i + 1] && (i + 1) % 4 !== 0 ? tile.value === game[i + 1].value : false;
       var isDownSame = game[i + 4] ? tile.value === game[i + 4].value : false;
@@ -318,7 +318,7 @@ function shiftGameLeft(gameGrid) {
     var filteredRow = currentRow.filter(function (row) {
       return row;
     });
-    for (var _iterator3 = filteredRow, _isArray3 = Array.isArray(_iterator3), _i3 = 0, _iterator3 = _isArray3 ? _iterator3 : _iterator3[Symbol.iterator](); ;) {
+    for (var _iterator3 = filteredRow, _isArray3 = Array.isArray(_iterator3), _i3 = 0, _iterator3 = _isArray3 ? _iterator3 : _iterator3[Symbol.iterator]();;) {
       var _ref3;
 
       if (_isArray3) {
@@ -339,13 +339,13 @@ function shiftGameLeft(gameGrid) {
       if (filteredRow[j].value === filteredRow[j + 1].value) {
         if (filteredRow[j].value === text512) {
           filteredRow[j].value = 512
-        }else if (filteredRow[j].value === text1024) {
+        } else if (filteredRow[j].value === text1024) {
           filteredRow[j].value = 1024
-        }else if(filteredRow[j].value === text2048){
+        } else if (filteredRow[j].value === text2048) {
           filteredRow[j].value = 2048
-        }else if(filteredRow[j].value === text4096){
+        } else if (filteredRow[j].value === text4096) {
           filteredRow[j].value = 4096
-        }else if(filteredRow[j].value === text8192){
+        } else if (filteredRow[j].value === text8192) {
           filteredRow[j].value = 8192
         }
 
@@ -354,13 +354,13 @@ function shiftGameLeft(gameGrid) {
         var sum = mergeSum;
         if (mergeSum === 512) {
           sum = text512
-        }else if (mergeSum === 1024) {
+        } else if (mergeSum === 1024) {
           sum = text1024
-        }else if(mergeSum === 2048){
+        } else if (mergeSum === 2048) {
           sum = text2048
-        }else if(mergeSum === 4096){
+        } else if (mergeSum === 4096) {
           sum = text4096
-        }else if(mergeSum === 8192){
+        } else if (mergeSum === 8192) {
           sum = text8192
         }
 
@@ -630,7 +630,7 @@ function laststep() {
   lastbtn = true;
 }
 
-function carry(){
+function carry() {
   $("#end").removeClass("active")
 }
 
@@ -647,5 +647,5 @@ function carry(){
 document.body.addEventListener('touchmove', function (e) {
   e.preventDefault(); //阻止默认的处理方式(阻止下拉滑动的效果)
 }, {
-    passive: false
-  }); //passive 参数不能省略，用来兼容ios和android
+  passive: false
+}); //passive 参数不能省略，用来兼容ios和android
